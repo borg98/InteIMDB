@@ -1,0 +1,36 @@
+.paging-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  &___button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    margin: 0 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    list-style: none;
+  }
+  .active {
+    background-color: #000;
+    color: #fff;
+  }
+}

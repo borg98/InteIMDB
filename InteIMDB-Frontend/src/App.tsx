@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import { MoviesHandler } from "./components/MoviesHandler";
+import { Movie } from "./models/Movie";
+import { fetchMoviesPage } from "./services/fetchMovies";
+import { PagingNav } from "./components/PagingNav";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [apiError, setApiError] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchMoviesPage(page)
+      .then((res) => {
+        setTimeout(() => {
+          if (res) {
+            setMovies(res.data);
+            setTotalPages(res.totalPages);
+          }
+          setIsLoading(false);
+        }, 1000);
+      })
+      .catch((error) => {
+        setApiError(error.message);
+      });
+  }, [page]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <h1>Movies</h1>
+        {isLoading ? (
+          <div className="spinner"></div>
+        ) : (
+          <>
+            <MoviesHandler movies={movies} apiError={apiError} />
+            <PagingNav
+              currentPage={page}
+              totalPages={totalPages}
+              setPage={setPage}
+            />
+          </>
+        )}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

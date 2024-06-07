@@ -1,0 +1,41 @@
+id,title,year,genre,rating,img_url
+1,The Shawshank Redemption,1994,Drama,9.3,https://placehold.co/600x400
+2,The Godfather,1972,Crime,9.2,https://placehold.co/600x400
+3,The Dark Knight,2008,Action,9.0,https://placehold.co/600x400
+4,12 Angry Men,1957,Drama,8.9,https://placehold.co/600x400
+5,Schindler's List,1993,Biography,8.9,https://placehold.co/600x400
+6,The Lord of the Rings: The Return of the King,2003,Adventure,8.9,https://placehold.co/600x400
+7,Pulp Fiction,1994,Crime,8.9,https://placehold.co/600x400
+8,The Good the Bad and the Ugly,1966,Western,8.8,https://placehold.co/600x400
+9,Forrest Gump,1994,Drama,8.8,https://placehold.co/600x400
+10,Inception,2010,Sci-Fi,8.8,https://placehold.co/600x400
+11,The Matrix,1999,Sci-Fi,8.7,https://placehold.co/600x400
+12,Goodfellas,1990,Crime,8.7,https://placehold.co/600x400
+13,Star Wars: Episode IV - A New Hope,1977,Adventure,8.6,https://placehold.co/600x400
+14,City of God,2002,Crime,8.6,https://placehold.co/600x400
+15,Se7en,1995,Crime,8.6,https://placehold.co/600x400
+16,The Silence of the Lambs,1991,Thriller,8.6,https://placehold.co/600x400
+17,It's a Wonderful Life,1946,Drama,8.6,https://placehold.co/600x400
+18,Life Is Beautiful,1997,Comedy,8.6,https://placehold.co/600x400
+19,Spirited Away,2001,Animation,8.6,https://placehold.co/600x400
+20,Saving Private Ryan,1998,War,8.6,https://placehold.co/600x400
+21,Interstellar,2014,Sci-Fi,8.6,https://placehold.co/600x400
+22,Parasite,2019,Thriller,8.6,https://placehold.co/600x400
+23,The Green Mile,1999,Drama,8.6,https://placehold.co/600x400
+24,Gladiator,2000,Action,8.5,https://placehold.co/600x400
+25,The Prestige,2006,Drama,8.5,https://placehold.co/600x400
+26,The Lion King,1994,Animation,8.5,https://placehold.co/600x400
+27,The Departed,2006,Crime,8.5,https://placehold.co/600x400
+28,Whiplash,2014,Drama,8.5,https://placehold.co/600x400
+29,The Intouchables,2011,Biography,8.5,https://placehold.co/600x400
+30,The Pianist,2002,Biography,8.5,https://placehold.co/600x400
+31,Terminator 2: Judgment Day,1991,Action,8.5,https://placehold.co/600x400
+32,Back to the Future,1985,Adventure,8.5,https://placehold.co/600x400
+33,Psycho,1960,Horror,8.5,https://placehold.co/600x400
+34,The Lord of the Rings: The Fellowship of the Ring,2001,Adventure,8.8,https://placehold.co/600x400
+35,The Usual Suspects,1995,Crime,8.5,https://placehold.co/600x400
+36,The Lion King,1994,Animation,8.5,https://placehold.co/600x400
+37,The Green Mile,1999,Drama,8.6,https://placehold.co/600x400
+38,American History X,1998,Drama,8.5,https://placehold.co/600x400
+39,Coco,2017,Animation,8.4,https://placehold.co/600x400
+40,WALL-E,2008,Animation,8.4,https://placehold.co/600x400
