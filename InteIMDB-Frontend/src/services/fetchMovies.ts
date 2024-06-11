@@ -4,7 +4,9 @@ import { PageRes } from "../models/IPageRes";
 
 export async function fetchAllMovies() {
   try {
-    const response = await axios.get<IMovie[]>("http://localhost:3000/movies");
+    const response = await axios.get<IMovie[]>(
+      "https://inte-imdb.vercel.app/movies"
+    );
     return response.data;
   } catch (error) {
     console.error(error);
@@ -14,7 +16,7 @@ export async function fetchAllMovies() {
 export async function fetchMovieById(id: number) {
   try {
     const response = await axios.get<IMovie>(
-      `http://localhost:3000/movies/${id}`
+      `https://inte-imdb.vercel.app/movies/${id}`
     );
     return response.data;
   } catch (error) {
@@ -25,7 +27,7 @@ export async function fetchMovieById(id: number) {
 export async function fetchMoviesPage(page: number) {
   try {
     const response = await axios.get<PageRes>(
-      `http://localhost:3000/movies/pagenr/${page}`
+      `https://inte-imdb.vercel.app/movies/pagenr/${page}`
     );
     return response.data;
   } catch (error) {
