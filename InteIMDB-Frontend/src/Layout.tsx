@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
+import { Navigation } from "./components/Navigation";
 
 export function Layout() {
   return (
     <>
-      <header></header>
+      <header>{<Navigation />}</header>
       <main>
         <Outlet />
       </main>
