@@ -1,9 +1,9 @@
-import { Movie } from "../models/Movie";
+import { IMovie } from "../models/IMovie";
 import { MovieCard } from "./MovieCard";
 
 interface MoviesHandlerProps {
   apiError: string;
-  movies: Movie[];
+  movies: IMovie[];
 }
 
 export function MoviesHandler({ apiError, movies }: MoviesHandlerProps) {

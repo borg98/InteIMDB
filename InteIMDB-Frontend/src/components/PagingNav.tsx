@@ -26,7 +26,7 @@ export function PagingNav({
         )}
         <ul className="paging-container__list">
           {Array.from({ length: totalPages }, (_, i) => (
-            <li key={i} className={`paging-container__list__item $`}>
+            <li key={i} className={`paging-container__list__item `}>
               <button
                 className={`paging-container__button ${
                   currentPage === i + 1 ? "active" : ""

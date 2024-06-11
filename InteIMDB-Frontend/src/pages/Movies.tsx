@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { MoviesHandler } from "./components/MoviesHandler";
-import { Movie } from "./models/Movie";
-import { fetchMoviesPage } from "./services/fetchMovies";
-import { PagingNav } from "./components/PagingNav";
+import { useState, useEffect } from "react";
+import { MoviesHandler } from "../components/MoviesHandler";
+import { PagingNav } from "../components/PagingNav";
+import { IMovie } from "../models/IMovie";
+import { fetchMoviesPage } from "../services/fetchMovies";
+import "../styles/main.scss";
 
-function App() {
+export function Movies() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<IMovie[]>([]);
   const [apiError, setApiError] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
@@ -16,13 +16,11 @@ function App() {
     setIsLoading(true);
     fetchMoviesPage(page)
       .then((res) => {
-        setTimeout(() => {
-          if (res) {
-            setMovies(res.data);
-            setTotalPages(res.totalPages);
-          }
-          setIsLoading(false);
-        }, 1000);
+        if (res) {
+          setMovies(res.data);
+          setTotalPages(res.totalPages);
+        }
+        setIsLoading(false);
       })
       .catch((error) => {
         setApiError(error.message);
@@ -49,5 +47,3 @@ function App() {
     </>
   );
 }
-
-export default App;

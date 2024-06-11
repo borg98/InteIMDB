@@ -1,10 +1,10 @@
 import axios from "axios";
-import { Movie } from "../models/Movie";
-import { PageRes } from "../models/PageRes";
+import { IMovie } from "../models/IMovie";
+import { PageRes } from "../models/IPageRes";
 
 export async function fetchAllMovies() {
   try {
-    const response = await axios.get<Movie[]>("http://localhost:3000/movies");
+    const response = await axios.get<IMovie[]>("http://localhost:3000/movies");
     return response.data;
   } catch (error) {
     console.error(error);
@@ -13,7 +13,7 @@ export async function fetchAllMovies() {
 
 export async function fetchMovieById(id: number) {
   try {
-    const response = await axios.get<Movie>(
+    const response = await axios.get<IMovie>(
       `http://localhost:3000/movies/${id}`
     );
     return response.data;
