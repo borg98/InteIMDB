@@ -9,6 +9,9 @@ export function Navigation() {
           <li>
             <NavLink to={"/"}>Log out</NavLink>
           </li>
+          <li>
+            <NavLink to={"/movies"}>Movies</NavLink>
+          </li>
           <li>Checkout icon</li>
         </ul>
       </nav>
