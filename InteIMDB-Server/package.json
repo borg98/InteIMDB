@@ -2,11 +2,11 @@
   "name": "inteimdb-server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.ts",
+  "main": "api/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.ts",
-    "dev": "nodemon src/server.ts"
+    "start": "node api/server.ts",
+    "dev": "nodemon api/server.ts"
   },
   "keywords": [],
   "author": "",
