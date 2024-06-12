@@ -15,10 +15,10 @@ export async function fetchAllMovies() {
 
 export async function fetchMovieById(id: number) {
   try {
-    const response = await axios.get<IMovie>(
+    const response = await axios.get<IMovie[]>(
       `https://inte-imdb.vercel.app/movies/${id}`
     );
-    return response.data;
+    return response.data[0];
   } catch (error) {
     console.error(error);
   }

@@ -5,4 +5,5 @@ export interface IMovie {
   genre: string;
   rating: number;
   img_url: string;
+  price: number;
 }
