@@ -34,3 +34,15 @@ export async function fetchMoviesPage(page: number) {
     console.error(error);
   }
 }
+
+export async function postMovieToCart(movie: IMovie, userId: number) {
+  try {
+    const response = await axios.post("https://inte-imdb.vercel.app/cart", {
+      movie,
+      userId,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
