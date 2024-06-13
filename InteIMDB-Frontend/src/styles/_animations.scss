@@ -1,0 +1,13 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.navigation__dropdown--hamburger,
+.navigation__dropdown--profile {
+  animation: fadeIn 0.4s;
+}

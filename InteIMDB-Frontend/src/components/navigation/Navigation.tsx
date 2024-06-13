@@ -59,15 +59,25 @@ export function Navigation() {
   return (
     <>
       <nav className="navigation">
-        <ul className="navigation__items">
-          <section className="navigation__links navigation__links--hamburger">
-            <li onClick={toggleHamburgerDropdown}>
+        <ul
+          className={`navigation__items ${
+            showHamburgerDropdown || showDropdown
+              ? "navigation__items--expanded"
+              : ""
+          }`}
+        >
+          <section className="navigation__links navigation__links--hamburgerMenu">
+            <li
+              className="navigation__hamburgerMenu-icons"
+              onClick={toggleHamburgerDropdown}
+            >
               {showHamburgerDropdown ? (
                 <>
                   <IoCloseOutline />
-                  <div ref={hamburgerDropdownRef}>
-                    <HamburgerMenu />
-                  </div>
+                  <HamburgerMenu
+                    hamburgerDropdownRef={hamburgerDropdownRef}
+                    showHamburgerDropdown={showHamburgerDropdown}
+                  />
                 </>
               ) : (
                 <RxHamburgerMenu />
@@ -75,30 +85,25 @@ export function Navigation() {
             </li>
           </section>
           <section className="navigation__links navigation__links--icons">
-            <li className="navigation__profile-icon" onClick={toggleDropdown}>
+            <li className="navigation__profile-icons" onClick={toggleDropdown}>
               {showDropdown ? (
                 <>
                   <CgProfile />
-                  <div ref={profileDropdownRef}>
-                    <ProfileDropdown />
-                  </div>
+                  <ProfileDropdown
+                    profileDropdownRef={profileDropdownRef}
+                    showDropdown={showDropdown}
+                  />
                 </>
               ) : (
                 <IoPersonOutline />
               )}
             </li>
-            <li onClick={toggleCart}>
+            <li className="navigation__shoppingCart-icons" onClick={toggleCart}>
               {showCart ? <IoBagHandleSharp /> : <IoBagHandleOutline />}
             </li>
           </section>
         </ul>
-        {showCart && (
-          <>
-            <div ref={cartRef}>
-              <Cart></Cart>
-            </div>
-          </>
-        )}
+        <Cart showCart={showCart} cartRef={cartRef}></Cart>
       </nav>
     </>
   );

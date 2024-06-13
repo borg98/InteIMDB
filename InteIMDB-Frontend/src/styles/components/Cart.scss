@@ -6,7 +6,7 @@
   justify-content: flex-end;
 
   &__container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: calc(100vh - 59.2px);
     display: flex;
@@ -14,6 +14,12 @@
     justify-content: flex-start;
     align-items: center;
     background-color: white;
+    transition: right 0.2s ease-in-out;
+    right: -100%;
+
+    &.active {
+      right: 0;
+    }
   }
 
   &__headline {
@@ -38,40 +44,40 @@
     border: 1px solid black;
     margin-top: 1rem;
     margin-bottom: 1rem;
-  }
 
-  &__image-container {
-    height: 100%;
-    border: 1px solid black;
-  }
+    &-price,
+    &-title {
+      text-align: left;
+    }
 
-  &__image-container img {
-    max-height: 100%;
-  }
+    &-image-container {
+      height: 100%;
+      border: 1px solid black;
 
-  &__info-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0.3rem;
-  }
+      & img {
+        max-height: 100%;
+      }
+    }
 
-  &__item-title,
-  &__item-price {
-    text-align: left;
-  }
+    &-info-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.3rem;
+    }
 
-  &__controls {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+    &-quantity-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
 
-  &__quantity {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    &-quantity {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 
   &__checkout-container {
@@ -88,7 +94,7 @@
     border: black;
   }
 
-  &__empty {
+  &__empty-message {
     width: 100%;
     height: calc(100vh - 59.2px);
     display: flex;
@@ -97,12 +103,18 @@
   }
 }
 
+button {
+  border-radius: 0;
+  background-color: black;
+  color: white;
+}
+
 .cart {
   @include mixins.devices(tablet) {
     .cart__container {
       width: 40%;
-      text-align: right;
       border-left: 1px solid black;
+      box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
     }
   }
 }
