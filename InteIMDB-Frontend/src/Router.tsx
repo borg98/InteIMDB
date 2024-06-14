@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Checkout } from "./pages/Checkout";
-import { Login } from "./pages/Login";
 import { MovieDetails } from "./pages/MovieDetails";
 import { Movies } from "./pages/Movies";
 import { Layout } from "./Layout";
@@ -9,16 +8,11 @@ import { Contact } from "./pages/Contact";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
-    index: true,
-  },
-
-  {
-    path: "/",
     element: <Layout />,
+    errorElement: <div>404 Not Found</div>,
     children: [
       {
-        path: "/movies",
+        path: "/",
         element: <Movies />,
         index: true,
       },

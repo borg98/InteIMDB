@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../../styles/_animations.scss";
+import { useContext } from "react";
+import { SupabaseContext } from "../../context/SupabaseContext";
 
 interface IProfileDropdownProps {
   profileDropdownRef: React.MutableRefObject<HTMLDivElement | null>;
@@ -7,6 +9,7 @@ interface IProfileDropdownProps {
 }
 
 const ProfileDropdown = (props: IProfileDropdownProps) => {
+  const supabase = useContext(SupabaseContext);
   return (
     <section
       ref={props.profileDropdownRef}
@@ -14,7 +17,14 @@ const ProfileDropdown = (props: IProfileDropdownProps) => {
     >
       <ul className="navigation__dropdown navigation__dropdown--profile">
         <li className="navigation__dropdown--profile-logout">
-          <NavLink to="/">Log Out</NavLink>
+          <NavLink
+            onClick={() => {
+              supabase?.auth.signOut();
+            }}
+            to="/"
+          >
+            Log Out
+          </NavLink>
         </li>
       </ul>
     </section>

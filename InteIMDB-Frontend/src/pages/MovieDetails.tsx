@@ -29,7 +29,7 @@ export function MovieDetails() {
             <span
               className="movie-container__button"
               onClick={() => {
-                navigate("/movies");
+                navigate("/");
               }}
             >
               <i className="fa-solid fa-arrow-left"></i>Back

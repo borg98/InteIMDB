@@ -15,7 +15,7 @@ const HamburgerMenu = (props: IHamburgerMenuProps) => {
     >
       <ul className="navigation__dropdown navigation__dropdown--hamburger">
         <li className="navigation__dropdown-item">
-          <NavLink to="/movies">Movies</NavLink>
+          <NavLink to="/">Movies</NavLink>
         </li>
         <li className="navigation__dropdown-item">
           <NavLink to="/contact">Contact</NavLink>
