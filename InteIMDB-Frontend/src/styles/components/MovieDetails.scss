@@ -1,0 +1,81 @@
+@use "../../styles/variables/colors" as c;
+
+.movie-container {
+  background-color: c.$dark-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 100px 0;
+
+  &__button {
+    position: fixed;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: flex-start;
+    transition: all 0.3s ease-in-out;
+    .fa-arrow-left {
+      font-size: 3rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    border-radius: 10px;
+
+    &__img {
+      border-radius: 10px;
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+      width: 400px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: bold;
+      color: c.$light-color;
+      text-align: left;
+      max-width: 30%;
+
+      &__title {
+        font-size: 3rem;
+        color: c.$light-color;
+        margin: 0;
+      }
+      &__text-container {
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+
+        &__text {
+          &--year {
+            color: c.$info-color;
+          }
+          &--rating {
+            color: c.$success-color;
+          }
+          &--genre {
+            color: c.$warning-color;
+          }
+          &--price {
+            color: c.$primary-color;
+          }
+        }
+      }
+    }
+  }
+}
