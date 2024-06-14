@@ -9,16 +9,18 @@ import { Contact } from "./pages/Contact";
 export const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
+    index: true,
+  },
+
+  {
+    path: "/",
     element: <Layout />,
     children: [
       {
-        path: "/",
-        element: <Login />,
-        index: true,
-      },
-      {
         path: "/movies",
         element: <Movies />,
+        index: true,
       },
       {
         path: "/movies/:id",
