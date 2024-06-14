@@ -82,6 +82,18 @@ app.post("/cart", async (req, res) => {
   res.status(201).json(data);
 });
 
+app.get("/cart", async (req, res) => {
+  const { data, error } = await supabase
+    .from("CartItems")
+    .select("productId , movies(*)")
+    .eq("userId", 1);
+  if (error) {
+    return res.status(500).json({ error: error.message });
+  }
+
+  res.status(200).json(data);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

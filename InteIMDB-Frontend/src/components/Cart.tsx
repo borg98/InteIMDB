@@ -2,22 +2,25 @@ import "../styles/components/Cart.scss";
 import { GoPlus } from "react-icons/go";
 import { HiMinus } from "react-icons/hi2";
 import { CiTrash } from "react-icons/ci";
+import { useEffect, useState } from "react";
+import { fetchCart } from "../services/fetchMovies";
+import { IMovie } from "../models/IMovie";
 
 interface iCart {
   showCart: boolean;
   cartRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
-const cart = [
-  {
-    id: 1,
-    title: "Negroni",
-    price: 49,
-    quantity: 1,
-  },
-];
-
 export function Cart(props: iCart) {
+  const [cart, setCart] = useState<IMovie[]>([]);
+
+  useEffect(() => {
+    fetchCart(1).then((res) => {
+      res && setCart(res);
+      console.log(res);
+    });
+  }, []);
+
   return (
     <>
       <section className="cart" ref={props.cartRef}>
