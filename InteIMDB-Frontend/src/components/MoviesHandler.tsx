@@ -9,7 +9,7 @@ interface MoviesHandlerProps {
 export function MoviesHandler({ apiError, movies }: MoviesHandlerProps) {
   return (
     <>
-      <div>
+      <div className="movies">
         {apiError ? (
           <h3>
             Could not get movies
