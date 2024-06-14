@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IMovie } from "../models/IMovie";
 import { PageRes } from "../models/IPageRes";
-import { Cart } from "../components/Cart";
+import { ICartRes } from "../models/ICartRes";
 
 export async function fetchAllMovies() {
   try {
@@ -50,7 +50,7 @@ export async function postMovieToCart(movie: IMovie, userId: number) {
 
 export async function fetchCart(cartId: number) {
   try {
-    const response = await axios.get<IMovie[]>(
+    const response = await axios.get<ICartRes[]>(
       `https://inte-imdb.vercel.app/cart/${cartId}`
     );
     return response.data;

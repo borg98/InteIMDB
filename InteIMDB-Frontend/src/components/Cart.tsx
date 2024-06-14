@@ -16,7 +16,10 @@ export function Cart(props: iCart) {
 
   useEffect(() => {
     fetchCart(1).then((res) => {
-      res && setCart(res);
+      const movieArray = res?.map((r) => {
+        return r.movies;
+      });
+      movieArray && setCart(movieArray);
       console.log(res);
     });
   }, []);
@@ -30,11 +33,11 @@ export function Cart(props: iCart) {
           }
         >
           {props.showCart ? (
-            cart.length !== 0 ? (
+            cart?.length !== 0 ? (
               <>
                 <p className="cart__headline">MOVIES ADDED TO YOUR CART</p>
                 <section className="cart__items">
-                  {cart.map((m, index) => (
+                  {cart?.map((m, index) => (
                     <section className="cart__item" key={index}>
                       <section className="cart__item-image-container">
                         <img
