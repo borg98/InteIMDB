@@ -82,11 +82,12 @@ app.post("/cart", async (req, res) => {
   res.status(201).json(data);
 });
 
-app.get("/cart", async (req, res) => {
+app.get("/cart/:cartId", async (req, res) => {
+  const { cartId } = req.params;
   const { data, error } = await supabase
     .from("CartItems")
     .select("productId , movies(*)")
-    .eq("userId", 1);
+    .eq("cartId", cartId);
   if (error) {
     return res.status(500).json({ error: error.message });
   }
