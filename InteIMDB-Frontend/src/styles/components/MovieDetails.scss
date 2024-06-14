@@ -31,15 +31,15 @@
   &__details {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    gap: 40px;
     padding: 20px;
     border-radius: 10px;
-    width: 100%;
 
     &__img {
       border-radius: 10px;
       box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+      width: 400px;
     }
 
     &__info {
@@ -49,6 +49,7 @@
       font-weight: bold;
       color: c.$light-color;
       text-align: left;
+      max-width: 30%;
 
       &__title {
         font-size: 3rem;
