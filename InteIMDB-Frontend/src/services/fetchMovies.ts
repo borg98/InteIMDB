@@ -38,7 +38,7 @@ export async function fetchMoviesPage(page: number) {
 export async function postMovieToCart(movie: IMovie, userId: number) {
   try {
     const response = await axios.post("https://inte-imdb.vercel.app/cart", {
-      movie,
+      movieId: movie.id,
       userId,
     });
     return response.data;

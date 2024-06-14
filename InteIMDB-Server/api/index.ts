@@ -74,7 +74,7 @@ app.post("/cart", async (req, res) => {
   const { movieId, userId } = req.body;
   const { data, error } = await supabase
     .from("CartItems")
-    .insert([{ movieId }]);
+    .insert([{ productId: movieId }]);
 
   if (error) {
     return res.status(500).json({ error: error.message });
