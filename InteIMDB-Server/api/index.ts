@@ -70,6 +70,18 @@ app.get("/movies/pagenr/:nr", async (req, res) => {
   res.status(200).json({ data: data, totalPages: nrOfPages });
 });
 
+app.post("/cart", async (req, res) => {
+  const { movieId, userId } = req.body;
+  const { data, error } = await supabase
+    .from("CartItems")
+    .insert([{ movieId }]);
+
+  if (error) {
+    return res.status(500).json({ error: error.message });
+  }
+  res.status(201).json(data);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
