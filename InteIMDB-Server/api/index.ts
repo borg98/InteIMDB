@@ -86,7 +86,7 @@ app.get("/cart/:cartId", async (req, res) => {
   const { cartId } = req.params;
   const { data, error } = await supabase
     .from("CartItems")
-    .select("productId , movies(*)")
+    .select("movies(*)")
     .eq("cartId", cartId);
   if (error) {
     return res.status(500).json({ error: error.message });
