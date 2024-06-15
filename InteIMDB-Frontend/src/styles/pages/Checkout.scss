@@ -1,0 +1,74 @@
+@use "/src/styles/mixins";
+
+.checkout {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__movies {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__headline--secondary {
+    margin-bottom: 1rem;
+  }
+
+  &__movieItem {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 1fr;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    &--title {
+      text-align: left;
+      padding: 0.5rem;
+    }
+
+    &--price {
+      padding: 0.5rem;
+      text-align: right;
+    }
+  }
+
+  &__totalPrice {
+    padding-top: 1rem;
+    margin: 0;
+  }
+
+  &__stripe {
+    padding-top: 3rem;
+  }
+
+  #submit {
+    margin-top: 2rem;
+  }
+}
+
+.checkout {
+  @include mixins.devices(tablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+
+    &__movies {
+      width: 40%;
+    }
+
+    &__stripe {
+      width: 50%;
+    }
+
+    &__stripe {
+      padding-top: 1rem;
+    }
+  }
+}

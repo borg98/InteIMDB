@@ -5,24 +5,43 @@ import { CiTrash } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import { fetchCart } from "../services/fetchMovies";
 import { IMovie } from "../models/IMovie";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
-interface iCart {
+interface ICartProps {
   showCart: boolean;
   cartRef: React.MutableRefObject<HTMLDivElement | null>;
+  toggleCart: () => void;
 }
 
-export function Cart(props: iCart) {
+export function Cart(props: ICartProps) {
   const [cart, setCart] = useState<IMovie[]>([]);
+  const navigate = useNavigate();
+
+  const { setMovies } = useCart();
 
   useEffect(() => {
     fetchCart(1).then((res) => {
-      const movieArray = res?.map((r) => {
+      const movieArray = res?.flatMap((r) => {
         return r.movies;
       });
       movieArray && setCart(movieArray);
+      movieArray && setMovies(movieArray);
+
       console.log(res);
     });
-  }, []);
+  }, [setMovies]);
+
+  const getTotalPrice = (cart: IMovie[]): number => {
+    return cart.reduce((total, movie) => total + movie.price, 0);
+  };
+
+  const total = getTotalPrice(cart);
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+    props.toggleCart();
+  };
 
   return (
     <>
@@ -40,10 +59,7 @@ export function Cart(props: iCart) {
                   {cart?.map((m, index) => (
                     <section className="cart__item" key={index}>
                       <section className="cart__item-image-container">
-                        <img
-                          src="https://yodqmhxvejxqcxxiddfc.supabase.co/storage/v1/object/public/test/1.png"
-                          alt="En omslagsbild för film"
-                        />
+                        <img src={m.img_url} alt="En omslagsbild för film" />
                       </section>
                       <section className="cart__item-info-container">
                         <p className="cart__item-title">{m.title}</p>
@@ -67,8 +83,15 @@ export function Cart(props: iCart) {
                   ))}
                 </section>
                 <section className="cart__checkout-container">
-                  <p className="cart__checkout-price">TOTALT: 49 SEK</p>
-                  <button className="cart__checkout-button">CHECKOUT</button>
+                  <p className="cart__checkout-price">TOTALT: {total} SEK</p>
+                  {cart.length > 0 && (
+                    <button
+                      className="cart__checkout-button"
+                      onClick={() => handleCheckout()}
+                    >
+                      CHECKOUT
+                    </button>
+                  )}
                 </section>
               </>
             ) : (

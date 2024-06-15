@@ -4,6 +4,16 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
 
+interface IMovie {
+  id: number;
+  title: string;
+  year: number;
+  genre: string;
+  rating: number;
+  img_url: string;
+  price: number;
+}
+
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*", methods: "*" }));
@@ -19,6 +29,10 @@ if (!PORT || !supabaseUrl || !supabaseKey) {
   );
 }
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+const stripe = require("stripe")(
+  "sk_test_51PJeAX2LDDRd0nb9mHmKPr5UFmqSaSoPlFQoNLauJQBhtItLtPTCfMFRxVw9p40eTRVq0AOiulyMBIrAOmBujOYP00dqBCvbJk"
+);
 
 app.get("/", (req, res) => {
   res.send("Hello Word");
@@ -93,6 +107,36 @@ app.get("/cart/:cartId", async (req, res) => {
   }
 
   res.status(200).json(data);
+});
+
+const calculateOrderAmount = (items: IMovie[] | null | undefined) => {
+  if (!items) {
+    console.error("Items is null or undefined");
+    return 0;
+  }
+
+  const totalAmount = items.reduce(
+    (acc: number, product: IMovie) => acc + product.price,
+    0
+  );
+  return totalAmount * 100;
+};
+
+app.post("/create-payment-intent", async (req, res) => {
+  const { items }: { items: IMovie[] } = req.body;
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: calculateOrderAmount(items),
+    currency: "sek",
+    payment_method: "pm_card_mastercard",
+    description: "Someone bought something",
+  });
+
+  console.log(paymentIntent);
+
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
 });
 
 app.listen(PORT, () => {

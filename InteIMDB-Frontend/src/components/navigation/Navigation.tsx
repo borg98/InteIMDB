@@ -15,9 +15,9 @@ export function Navigation() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showHamburgerDropdown, setShowHamburgerDropdown] = useState(false);
 
-  const cartRef = useRef<HTMLDivElement | null>(null);
-  const profileDropdownRef = useRef<HTMLDivElement | null>(null);
-  const hamburgerDropdownRef = useRef<HTMLDivElement | null>(null);
+  const cartRef = useRef<HTMLTableSectionElement | null>(null);
+  const profileDropdownRef = useRef<HTMLTableSectionElement | null>(null);
+  const hamburgerDropdownRef = useRef<HTMLTableSectionElement | null>(null);
 
   const toggleCart = () => {
     setShowCart(!showCart);
@@ -103,7 +103,11 @@ export function Navigation() {
             </li>
           </section>
         </ul>
-        <Cart showCart={showCart} cartRef={cartRef}></Cart>
+        <Cart
+          showCart={showCart}
+          cartRef={cartRef}
+          toggleCart={toggleCart}
+        ></Cart>
       </nav>
     </>
   );

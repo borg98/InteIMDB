@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import { SessionContext } from "../context/SessionContext";
 import { router } from "../Router";
 import { SupabaseContext } from "../context/SupabaseContext";
+import { CartProvider } from "../context/CartContext";
 
 // const supabase = createClient(
 //   "https://xjwicnefwjpfsasawebl.supabase.co",
@@ -47,7 +48,9 @@ export default function Login() {
       <div className="spinner"></div>
     ) : (
       <SessionContext.Provider value={session}>
-        <RouterProvider router={router}></RouterProvider>
+        <CartProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </CartProvider>
       </SessionContext.Provider>
     );
   }
