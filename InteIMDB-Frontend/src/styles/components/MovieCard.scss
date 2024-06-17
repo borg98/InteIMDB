@@ -13,6 +13,7 @@
   cursor: pointer;
   &:hover {
     background-color: c.$dark-color;
+    color: c.$light-color;
     transform: translateY(-10px);
   }
   .movie-card__poster {
@@ -25,7 +26,6 @@
     margin-top: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
-    color: c.$light-color;
   }
   .movie-card__rating {
     display: flex;
@@ -34,7 +34,6 @@
     margin-top: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: c.$light-color;
     .icon {
       margin-right: 0.5rem;
     }
@@ -46,7 +45,6 @@
     margin-top: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: c.$light-color;
     .icon {
       margin-right: 0.5rem;
     }
@@ -55,7 +53,6 @@
     margin-top: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: c.$light-color;
   }
   .movie-card__overview {
     margin-top: 1rem;
