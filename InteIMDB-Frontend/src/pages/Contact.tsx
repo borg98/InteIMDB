@@ -1,6 +1,157 @@
 import "../styles/components/Contact.scss";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+
+const options = {
+  styles: [
+    {
+      featureType: "administrative",
+      elementType: "all",
+      stylers: [
+        {
+          saturation: "-100",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.province",
+      elementType: "all",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "landscape",
+      elementType: "all",
+      stylers: [
+        {
+          saturation: -100,
+        },
+        {
+          lightness: 65,
+        },
+        {
+          visibility: "on",
+        },
+      ],
+    },
+    {
+      featureType: "poi",
+      elementType: "all",
+      stylers: [
+        {
+          saturation: -100,
+        },
+        {
+          lightness: "50",
+        },
+        {
+          visibility: "simplified",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "all",
+      stylers: [
+        {
+          saturation: "-100",
+        },
+      ],
+    },
+    {
+      featureType: "road.highway",
+      elementType: "all",
+      stylers: [
+        {
+          visibility: "simplified",
+        },
+      ],
+    },
+    {
+      featureType: "road.arterial",
+      elementType: "all",
+      stylers: [
+        {
+          lightness: "30",
+        },
+      ],
+    },
+    {
+      featureType: "road.local",
+      elementType: "all",
+      stylers: [
+        {
+          lightness: "40",
+        },
+      ],
+    },
+    {
+      featureType: "transit",
+      elementType: "all",
+      stylers: [
+        {
+          saturation: -100,
+        },
+        {
+          visibility: "simplified",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [
+        {
+          hue: "#ffff00",
+        },
+        {
+          lightness: -25,
+        },
+        {
+          saturation: -97,
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "labels",
+      stylers: [
+        {
+          lightness: -25,
+        },
+        {
+          saturation: -100,
+        },
+      ],
+    },
+  ],
+};
 
 export const Contact = () => {
+  let key = "AIzaSyB_PyAu6A0TmnfKtGefmgiE2QPlbDXl-Cw";
+
+  const markerPosition = {
+    lat: 34.134117,
+    lng: -118.321495,
+  };
+
+  const markerPosition2 = {
+    lat: 34.134117,
+    lng: -118.321495,
+  };
+
+  const center = {
+    lat: 34.134117,
+    lng: -118.321495,
+  };
+
+  const mapContainerStyle = {
+    width: "100%",
+    height: "100%",
+  };
+
   return (
     <section id="main-contact-wrapper">
       <div className="contact-info-wrapper">
@@ -27,7 +178,19 @@ export const Contact = () => {
           />
         </div>
       </div>
-      <div className="contact-maps-wrapper">karta</div>
+      <div className="contact-maps-wrapper">
+        <LoadScript googleMapsApiKey={key}>
+          <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            zoom={15}
+            center={center}
+            options={options}
+          >
+            <Marker position={markerPosition} />
+            <Marker position={markerPosition2} />
+          </GoogleMap>
+        </LoadScript>
+      </div>
     </section>
   );
 };
