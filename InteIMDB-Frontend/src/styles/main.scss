@@ -4,6 +4,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  &--bs-card-border-width {
+    border-width: 0;
+  }
 }
 
 .movies {
