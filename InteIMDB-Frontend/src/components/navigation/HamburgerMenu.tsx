@@ -20,9 +20,6 @@ const HamburgerMenu = (props: IHamburgerMenuProps) => {
         <li className="navigation__dropdown-item">
           <NavLink to="/contact">Contact</NavLink>
         </li>
-        <li className="navigation__dropdown-item">
-          <NavLink to="/checkout">Checkout</NavLink>
-        </li>
       </ul>
     </section>
   );

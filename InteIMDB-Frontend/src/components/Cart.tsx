@@ -27,8 +27,6 @@ export function Cart(props: ICartProps) {
       });
       movieArray && setCart(movieArray);
       movieArray && setMovies(movieArray);
-
-      console.log(res);
     });
   }, [setMovies]);
 

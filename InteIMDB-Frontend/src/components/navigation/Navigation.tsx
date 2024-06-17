@@ -84,6 +84,9 @@ export function Navigation() {
               )}
             </li>
           </section>
+          <section>
+            <p className="navigation__logo-title">Inte IMBD</p>
+          </section>
           <section className="navigation__links navigation__links--icons">
             <li className="navigation__profile-icons" onClick={toggleDropdown}>
               {showDropdown ? (
