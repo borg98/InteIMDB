@@ -1,5 +1,5 @@
 import "../styles/components/Contact.scss";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 
 const options = {
   styles: [
@@ -130,7 +130,9 @@ const options = {
 };
 
 export const Contact = () => {
-  let key = "AIzaSyB_PyAu6A0TmnfKtGefmgiE2QPlbDXl-Cw";
+  let key = import.meta.env.VITE_MAP_API_KEY;
+
+  console.log(key);
 
   const markerPosition = {
     lat: 34.134117,
@@ -186,8 +188,8 @@ export const Contact = () => {
             center={center}
             options={options}
           >
-            <Marker position={markerPosition} />
-            <Marker position={markerPosition2} />
+            <MarkerF position={markerPosition} />
+            <MarkerF position={markerPosition2} />
           </GoogleMap>
         </LoadScript>
       </div>
