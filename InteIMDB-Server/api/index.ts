@@ -30,9 +30,7 @@ if (!PORT || !supabaseUrl || !supabaseKey) {
 }
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const stripe = require("stripe")(
-  "sk_test_51PJeAX2LDDRd0nb9mHmKPr5UFmqSaSoPlFQoNLauJQBhtItLtPTCfMFRxVw9p40eTRVq0AOiulyMBIrAOmBujOYP00dqBCvbJk"
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.get("/", (req, res) => {
   res.send("Hello Word");

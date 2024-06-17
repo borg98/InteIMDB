@@ -4,6 +4,7 @@ import { MovieDetails } from "./pages/MovieDetails";
 import { Movies } from "./pages/Movies";
 import { Layout } from "./Layout";
 import { Contact } from "./pages/Contact";
+import { Order } from "./pages/Order";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/order",
+        element: <Order />,
       },
     ],
   },
