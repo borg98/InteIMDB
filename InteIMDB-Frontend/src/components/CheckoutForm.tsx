@@ -59,7 +59,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:5173/order",
+        return_url: "https://inte-imdb-l62e.vercel.app/order",
       },
     });
 
