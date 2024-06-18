@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/order",
+        path: "/#/order",
         element: <Order />,
       },
     ],
