@@ -149,8 +149,6 @@ const calculateOrderAmount = (items: IMovie[] | null | undefined) => {
 
 app.post("/create-payment-intent", async (req, res) => {
   const { items }: { items: IMovie[] } = req.body;
-  res.json(items);
-  return;
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
     currency: "sek",
