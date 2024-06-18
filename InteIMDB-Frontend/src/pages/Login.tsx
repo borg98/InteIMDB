@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { RouterProvider, useNavigate } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { SessionContext } from "../context/SessionContext";
 import { router } from "../Router";
 import { SupabaseContext } from "../context/SupabaseContext";
