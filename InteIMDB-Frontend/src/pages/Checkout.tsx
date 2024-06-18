@@ -16,6 +16,7 @@ export function Checkout() {
 
   useEffect(() => {
     fetch("https://inte-imdb.vercel.app/create-payment-intent", {
+      mode: "no-cors",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: movies }),
