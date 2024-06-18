@@ -130,7 +130,7 @@ const options = {
 };
 
 export const Contact = () => {
-  let key = import.meta.env.VITE_MAP_API_KEY;
+  let key = import.meta.env.VITE_MAP_API;
 
   const markerPosition = {
     lat: 34.134117,
