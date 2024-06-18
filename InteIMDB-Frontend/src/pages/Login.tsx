@@ -17,15 +17,6 @@ export default function Login() {
   const [session, setSession] = useState<Session | null>(null);
   const supabase = useContext(SupabaseContext);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
-
-  const paymentIntentClientSecret = new URLSearchParams(
-    window.location.search
-  ).get("payment_intent_client_secret");
-
-  if (paymentIntentClientSecret) {
-    navigate("/order");
-  }
 
   useEffect(() => {
     supabase?.auth.getSession().then(({ data: { session } }) => {
