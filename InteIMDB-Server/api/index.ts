@@ -16,7 +16,18 @@ interface IMovie {
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "*", methods: "*" }));
+
+const corsOptions = {
+  origin: "https://inte-imdb-l62e.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
+app.options("*", cors(corsOptions));
+// app.use(cors({ origin: "*", methods: "*" }));
 app.use(bodyParser.json());
 
 dotenv.config();
