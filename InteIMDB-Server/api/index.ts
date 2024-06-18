@@ -31,6 +31,8 @@ app.options("*", cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
+  console.log("Cors headers added");
+
   res.header(
     "Access-Control-Allow-Origin",
     "https://inte-imdb-l62e.vercel.app"
@@ -39,6 +41,8 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  console.log(res.getHeaders());
+
   next();
 });
 
