@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider, useNavigate } from "react-router-dom";
 import { SessionContext } from "../context/SessionContext";
 import { router } from "../Router";
 import { SupabaseContext } from "../context/SupabaseContext";
@@ -17,6 +17,15 @@ export default function Login() {
   const [session, setSession] = useState<Session | null>(null);
   const supabase = useContext(SupabaseContext);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const paymentIntentClientSecret = new URLSearchParams(
+    window.location.search
+  ).get("payment_intent_client_secret");
+
+  if (paymentIntentClientSecret) {
+    navigate("/order");
+  }
 
   useEffect(() => {
     supabase?.auth.getSession().then(({ data: { session } }) => {
