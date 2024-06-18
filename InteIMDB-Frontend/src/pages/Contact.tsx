@@ -167,12 +167,12 @@ export const Contact = () => {
 
         <div className="contact-icons">
           <img
-            src="src/assets/icons8-instagram.svg"
+            src="/icons8-instagram.svg"
             alt="bild på instagrams logga"
             className="insta-icon"
           />
           <img
-            src="src/assets/icons8-facebook.svg"
+            src="/icons8-facebook.svg"
             alt="bild på facebooks logga"
             className="facebook-icon"
           />

@@ -41,7 +41,11 @@ export default function Login() {
     return isLoading ? (
       <div className="spinner"></div>
     ) : (
-      <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
+      <Auth
+        supabaseClient={supabase}
+        appearance={{ theme: ThemeSupa }}
+        providers={["google"]}
+      />
     );
   } else {
     return isLoading ? (
