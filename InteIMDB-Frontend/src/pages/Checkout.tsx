@@ -14,6 +14,8 @@ export function Checkout() {
   const [clientSecret, setClientSecret] = useState("");
   const { movies } = useCart();
 
+  console.log(movies);
+
   useEffect(() => {
     fetch("https://inte-imdb.vercel.app/create-payment-intent", {
       method: "POST",
