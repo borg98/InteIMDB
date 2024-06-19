@@ -84,7 +84,7 @@ export function Cart(props: ICartProps) {
                   <p className="cart__checkout-price">TOTALT: {total} SEK</p>
                   {cart.length > 0 && (
                     <button
-                      id="button_click"
+                      id="button_checkout"
                       className="cart__checkout-button"
                       onClick={() => handleCheckout()}
                     >
