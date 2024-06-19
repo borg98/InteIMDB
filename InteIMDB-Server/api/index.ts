@@ -17,22 +17,11 @@ interface IMovie {
 const app = express();
 app.use(express.json());
 
-// const corsOptions = {
-//   origin: "https://inte-imdb-l62e.vercel.app",
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   credentials: true,
-//   optionsSuccessStatus: 204,
-// };
-
 app.use(cors());
 
-// app.options("*", cors(corsOptions));
-// app.use(cors({ origin: "*", methods: "*" }));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  console.log("Cors headers added");
-
   res.header(
     "Access-Control-Allow-Origin",
     "https://inte-imdb-l62e.vercel.app"
@@ -41,8 +30,6 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  console.log(res.getHeaders());
-
   next();
 });
 
