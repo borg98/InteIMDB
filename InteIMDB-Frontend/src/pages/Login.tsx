@@ -8,11 +8,6 @@ import { router } from "../Router";
 import { SupabaseContext } from "../context/SupabaseContext";
 import { CartProvider } from "../context/CartContext";
 
-// const supabase = createClient(
-//   "https://xjwicnefwjpfsasawebl.supabase.co",
-//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhqd2ljbmVmd2pwZnNhc2F3ZWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc3NTA3MzYsImV4cCI6MjAzMzMyNjczNn0.P2w4BvBmBoYe9TYWvlgDXfz9hnZ6LykMDIi83t4NV_g"
-// );
-
 export default function Login() {
   const [session, setSession] = useState<Session | null>(null);
   const supabase = useContext(SupabaseContext);
